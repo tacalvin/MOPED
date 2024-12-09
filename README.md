@@ -1,2 +1,2 @@
 # MOPED
-Implementation of Multi-modal Pose Diffuser: A Multimodal Generative Conditional Pose Prior
+Implementation of Multi-modal Pose Diffuser: A Multimodal Generative Conditional Pose Prior Coming Soon
