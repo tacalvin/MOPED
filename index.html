@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOPED | WACV 2027</title>
+<meta name="description" content="MOPED is a multimodal conditional diffusion pose prior for human mesh recovery, pose completion, and generation. Accepted to WACV 2027.">
+<meta name="author" content="Calvin-Khang Ta, Arindam Dutta, Dripta Raychaudhuri, Amit Roy-Chowdhury">
+<meta property="og:type" content="article"><meta property="og:title" content="Multi-modal Pose Diffuser: A Multimodal Generative Conditional Pose Prior">
+<meta property="og:description" content="One diffusion pose prior, with optional image and text conditioning. WACV 2027.">
+<meta property="og:url" content="https://tacalvin.github.io/MOPED/"><meta property="og:image" content="https://tacalvin.github.io/MOPED/static/images/teaser.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="citation_title" content="Multi-modal Pose Diffuser: A Multimodal Generative Conditional Pose Prior">
+<meta name="citation_author" content="Ta, Calvin-Khang"><meta name="citation_author" content="Dutta, Arindam"><meta name="citation_author" content="Raychaudhuri, Dripta"><meta name="citation_author" content="Roy-Chowdhury, Amit">
+<meta name="citation_conference_title" content="IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2027">
+<link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="static/css/bulma.min.css"><link rel="stylesheet" href="static/css/index.css"><link rel="stylesheet" href="static/css/moped.css">
+<script defer src="static/js/fontawesome.all.min.js"></script><script defer src="static/js/moped.js"></script>
+</head><body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<button class="scroll-to-top" type="button" title="Scroll to top" aria-label="Scroll to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+<main id="main-content">
+<section class="hero publication-header"><div class="hero-body"><div class="container is-max-desktop"><div class="columns is-centered"><div class="column has-text-centered">
+<h1 class="title is-1 publication-title">Multi-modal Pose Diffuser: A Multimodal Generative Conditional Pose Prior</h1>
+<div class="is-size-5 publication-authors"><span class="author-block">Calvin-Khang Ta<sup>*</sup>,</span> <span class="author-block">Arindam Dutta,</span> <span class="author-block">Dripta Raychaudhuri<sup>*</sup>,</span> <span class="author-block">Amit Roy-Chowdhury</span></div>
+<div class="is-size-5 publication-authors"><span class="author-block">University of California, Riverside</span></div>
+<p class="publication-venue">WACV 2027</p>
+<p class="affiliation-note"><sup>*</sup> Work done at UC Riverside. Calvin-Khang Ta is now at Voia; Dripta Raychaudhuri is now at Physion Labs.</p>
+<div class="publication-links"><span class="link-block"><span class="button is-normal is-rounded is-dark" aria-disabled="true" title="Public paper link forthcoming"><span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper (coming soon)</span></span></span>
+<span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="https://github.com/tacalvin/MOPED"><span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Repository</span></a></span>
+<span class="link-block"><a class="button is-normal is-rounded is-dark" href="#BibTeX"><span class="icon"><i class="fas fa-quote-right" aria-hidden="true"></i></span><span>BibTeX</span></a></span></div>
+</div></div></div></div></section>
+<section class="hero teaser"><div class="container is-max-desktop"><div class="hero-body"><figure><img class="teaser-image" src="static/images/teaser.webp" alt="MOPED takes images, text, and partial joint observations to recover, generate, or complete 3D human poses" width="1400" height="1224"><figcaption class="subtitle has-text-centered"><strong>MOPED</strong> is a flexible pose prior for human mesh recovery, pose generation, and pose completion, with optional image and language conditioning.</figcaption></figure></div></div></section>
+<section class="section hero is-light"><div class="container is-max-desktop"><div class="columns is-centered has-text-centered"><div class="column is-four-fifths"><h2 class="title is-3">Abstract</h2><div class="content has-text-justified"><p>The Skinned Multi-Person Linear (SMPL) model plays a crucial role in 3D human pose estimation, providing a streamlined yet effective representation of the human body. However, ensuring the validity of SMPL configurations for tasks such as human mesh regression and generation remains a significant challenge, highlighting the necessity for a robust human pose prior capable of discerning realistic human poses. To address this, we introduce MOPED: Multi-mOdal PosE Diffuser. MOPED leverages a multi-modal conditional diffusion model as a prior for SMPL pose parameters, supporting unconditional pose generation together with conditioning on multi-modal inputs such as images and/or text. This capability enhances the applicability of our approach by incorporating additional context often overlooked in traditional pose priors. Extensive experiments across four tasks (monocular mesh recovery, multi-view refinement, pose completion from partial observations, and unconditional generation) demonstrate that our multi-modal diffusion model-based prior improves over existing methods, with the clearest gains where the initialization is poor or out of distribution, indicating that MOPED captures a broader spectrum of plausible human poses.</p></div></div></div></div></section>
+<section class="section "><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Method overview</h2><figure class="research-figure"><img src="assets/method.webp" alt="MOPED architecture showing CLIP image and text encoders, context encoding, pose-oriented self-attention and condition cross-attention." loading="lazy"><figcaption class="has-text-centered">Frozen CLIP encoders provide optional image and text context to a pose-oriented diffusion transformer. Loss-guided DDIM sampling incorporates task constraints and anti-penetration guidance.</figcaption></figure></div></section>
+<section class="section hero is-light"><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Human mesh recovery</h2><figure class="research-figure"><img src="assets/recovery.webp" alt="Qualitative comparison of human mesh recovery using several pose priors initialized with HMR2.0." loading="lazy"><figcaption class="has-text-centered">MOPED refines HMR2.0 estimates, with clearer gains when the initialization is poor or out of distribution. Figure 3 from the paper.</figcaption></figure></div></section>
+<section class="section"><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Quantitative results</h2><div class="table-container"><table class="table is-fullwidth is-striped"><caption>Selected results from Table 1 of the paper</caption><thead><tr><th scope="col">Method</th><th scope="col">EHF</th><th scope="col">3DPW</th><th scope="col">EMDB</th></tr></thead><tbody><tr><th scope="row">HMR2.0</th><td>51.09</td><td>54.30</td><td>79.10</td></tr><tr><th scope="row">ScoreHMR</th><td><strong>49.03</strong></td><td>51.10</td><td>76.50</td></tr><tr class="ours"><th scope="row">MOPED <span>Ours</span></th><td>49.05</td><td><strong>49.58</strong></td><td><strong>72.13</strong></td></tr></tbody></table></div><p class="result-note">PA-MPJPE in millimeters (lower is better). ScoreHMR and MOPED refine an HMR2.0 initialization. MOPED is on par on EHF, with clearer gains on 3DPW and EMDB. See Table 1 of the paper for the full comparison and evaluation protocol.</p></div></section><section class="section hero is-light"><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Pose completion</h2><figure class="research-figure"><img src="assets/completion.webp" alt="Examples of plausible body poses completed from partial joint observations." loading="lazy"><figcaption class="has-text-centered">The learned pose distribution fills in unobserved body configurations while fitting the observed joints. Examples from the supplied supplementary research assets.</figcaption></figure></div></section>
+<section class="section "><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Pose generation</h2><figure class="research-figure"><img src="assets/generation.webp" alt="Generated human body poses, including examples with dancing and ballet prompts." loading="lazy"><figcaption class="has-text-centered">MOPED supports unconditional generation from noise and generation conditioned on language, including “Dancing” and “Ballet”. Examples from the supplied research assets.</figcaption></figure></div></section>
+<section class="section hero is-light"><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Text-conditioned refinement</h2><figure class="research-figure"><img src="assets/text-conditioning.webp" alt="Visual examples of text-conditioned human pose refinement." loading="lazy"><figcaption class="has-text-centered">Language provides additional context when visual evidence is ambiguous. Examples from the supplied supplementary research assets.</figcaption></figure></div></section>
+<section class="section" id="BibTeX"><div class="container is-max-desktop content"><div class="bibtex-header"><h2 class="title">BibTeX</h2><button class="copy-bibtex-btn" type="button" title="Copy BibTeX to clipboard"><i class="fas fa-copy" aria-hidden="true"></i><span class="copy-text">Copy</span></button></div><p class="result-note">Provisional citation for the accepted WACV 2027 paper. The proceedings have not yet been released; this entry will be updated when the official citation is available.</p><pre id="bibtex-code"><code>@inproceedings{ta2027moped,
+  title = {Multi-modal Pose Diffuser: A Multimodal
+           Generative Conditional Pose Prior},
+  author = {Ta, Calvin-Khang and Dutta, Arindam and
+            Raychaudhuri, Dripta and Roy-Chowdhury, Amit},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference
+               on Applications of Computer Vision (WACV)},
+  year = {2027},
+  note = {Accepted to WACV 2027; proceedings forthcoming. Provisional citation}
+}</code></pre><p id="copy-status" role="status" aria-live="polite"></p></div></section></main>  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body></html>
